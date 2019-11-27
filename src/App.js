@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React ,{Component} from 'react';
+import Fruit from './Fruit';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  state={
+    
+  }
+  colors = ['red', 'blue', 'green', 'yellow', 'cornflowerblue','fuchsia','pink', 'lemongreen'];
+  fruits =['Pineapple','Lemon', 'Blueberry','Orange', 'Pear','Banana', 'Cherry', 'Strawberry']
+  
+  render() {
+    return (
+      <div>
+        <Fruit someProps={this.fruits[Math.floor(Math.random()*this.fruits.length)]}
+        color={this.colors[ Math.floor(Math.random() * this.colors.length) ]}/>
+        <Fruit someProps={this.fruits[Math.floor(Math.random()*this.fruits.length)]} 
+        color={this.colors[ Math.floor(Math.random() * this.colors.length) ]}/>
+        <Fruit someProps={this.fruits[Math.floor(Math.random()*this.fruits.length)]}
+         color={this.colors[ Math.floor(Math.random() * this.colors.length) ]}/>
+
+        <button onClick={()=>{
+          this.setState({})
+        }}>Randomize</button>
+      </div>
+    );
+  }
 }
 
 export default App;
